@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TextEditor extends JFrame implements ActionListener {
@@ -18,6 +19,7 @@ public class TextEditor extends JFrame implements ActionListener {
     JComboBox fontBox;
     JComboBox colorBox;
     JComboBox sizeBox;
+    ArrayList<FlyWeight> text_objets = new ArrayList<>();
 
     JMenuBar menuBar;
     JMenu fileMenu;
@@ -34,6 +36,8 @@ public class TextEditor extends JFrame implements ActionListener {
 
         textArea = new JTextArea();
         //textArea.setPreferredSize(new Dimension(450,450));
+        //textArea.append("HelloWorldCS5800");
+
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setFont(new Font("Jokerman", Font.PLAIN, 20));
@@ -96,7 +100,7 @@ public class TextEditor extends JFrame implements ActionListener {
             textArea.setFont(new Font((String) fontBox.getSelectedItem(), Font.PLAIN, textArea.getFont().getSize()));
         }
         if(e.getSource() == sizeBox){
-            textArea.setFont(new Font(textArea.getFont().toString(), Font.PLAIN, (Integer) sizeBox.getSelectedItem()));
+            textArea.setFont(new Font(textArea.getFont().getFamily(), Font.PLAIN, (Integer) sizeBox.getSelectedItem()));
         }
         if(e.getSource() == openItem){
             JFileChooser fileChooser = new JFileChooser();
@@ -150,5 +154,38 @@ public class TextEditor extends JFrame implements ActionListener {
         if(e.getSource() == exitItem){
             System.exit(0);
         }
+
+        if(e.getModifiers() != 0) {
+            FlyWeight text = new FlyWeight(textArea.getText(), textArea.getFont().getFamily(), textArea.getForeground(), textArea.getFont().getSize());
+            System.out.println("Incoming data");
+            System.out.println("Text: " + text.getText());
+            System.out.println("Font: " + text.getFont());
+            System.out.println("Color: " + text.getColor());
+            System.out.println("Size: " + text.getSize());
+            System.out.println();
+
+            if(text_objets.size()==0){
+                text_objets.add(text);
+                System.out.println("Initializing text array");
+                System.out.println();
+            }
+
+
+            for(int i=0; i<text_objets.size(); i++){
+                if(text.isSame(text_objets.get(i))){
+                    System.out.println("This text is already stored.");
+                    System.out.println();
+                    break;
+                }
+                else if(i == text_objets.size()-1){
+                    text_objets.add(text);
+                    System.out.println("Adding to text_objects");
+                    System.out.println("text_object size " + text_objets.size());
+                    System.out.println();
+                    break;
+                }
+            }
+        }
     }
 }
+//HelloWorldCS5800
