@@ -26,10 +26,9 @@ public class Proxy extends Song {
             if(list.get(i).getTitle() == title){
                 System.out.println("Proxy found title: " + list.get(i).getTitle());
                 songs.add(list.get(i));
-                return songs;
             }
         }
-        return null;
+        return songs;
     }
 
     @Override
@@ -37,11 +36,13 @@ public class Proxy extends Song {
         List<Song> songs = new ArrayList<Song>();
         for(int i=0; i<list.size(); i++){
             if(list.get(i).getAlbum() == album){
-                System.out.println("Proxy found album: " + list.get(i).getAlbum());
                 songs.add(list.get(i));
-                return songs;
             }
         }
-        return null;
+        System.out.println("Proxy found songs on " + album + ":");
+        for(int i=0; i<songs.size(); i++){
+            System.out.println(songs.get(i).getTitle());
+        }
+        return songs;
     }
 }

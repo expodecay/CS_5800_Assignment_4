@@ -93,10 +93,9 @@ public class Song implements SongService{
             if(list.get(i).getTitle() == title){
                 System.out.println("Server found title: " + list.get(i).getTitle());
                 songs.add(list.get(i));
-                return songs;
             }
         }
-        return null;
+        return songs;
     }
 
     @Override
@@ -111,14 +110,17 @@ public class Song implements SongService{
         try {
             Thread.sleep(1000);
         } catch (Exception e) {}
+
         List<Song> songs = new ArrayList<Song>();
         for(int i=0; i<list.size(); i++){
             if(list.get(i).getAlbum() == album){
-                System.out.println("Server found album: " + list.get(i).getAlbum());
                 songs.add(list.get(i));
-                return songs;
             }
         }
-        return null;
+        System.out.println("Songs on " + album + ":");
+        for(int i=0; i<songs.size(); i++){
+            System.out.println(songs.get(i).getTitle());
+        }
+        return songs;
     }
 }

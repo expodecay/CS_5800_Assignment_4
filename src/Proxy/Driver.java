@@ -19,12 +19,21 @@ public class Driver {
         song_list_1.add(song5);
 
         Proxy song6 = new Proxy("song1", "artist6", "album2", 6, 100);
+        Proxy song7 = new Proxy("song2", "artist6", "album2", 7, 100);
+        Proxy song8 = new Proxy("song3", "artist6", "album2", 8, 100);
+        Proxy song9 = new Proxy("song4", "artist6", "album2", 9, 100);
+        Proxy song10 = new Proxy("song5", "artist6", "album2", 10, 100);
+
+
         List<Song> song_list_2 = new ArrayList<Song>();
         song_list_2.add(song6);
-
-        song1.searchByID(song_list_1, song1.getSongID());
+        song_list_2.add(song7);
+        song_list_2.add(song8);
+        song_list_2.add(song9);
+        song_list_2.add(song10);
 
         song6.searchByID(song_list_2, song6.getSongID());
+        song6.searchByAlbum(song_list_2, song6.getAlbum());
 
     }
 }
