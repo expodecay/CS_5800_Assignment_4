@@ -18,11 +18,11 @@ public class Driver {
         song_list_1.add(song4);
         song_list_1.add(song5);
 
-        Proxy song6 = new Proxy("song1", "artist6", "album2", 6, 100);
-        Proxy song7 = new Proxy("song2", "artist6", "album2", 7, 100);
-        Proxy song8 = new Proxy("song3", "artist6", "album2", 8, 100);
-        Proxy song9 = new Proxy("song4", "artist6", "album2", 9, 100);
-        Proxy song10 = new Proxy("song5", "artist6", "album2", 10, 100);
+        Song song6 = new Proxy("song1", "artist6", "album2", 6, 100);
+        Song song7 = new Proxy("song2", "artist6", "album2", 7, 100);
+        Song song8 = new Proxy("song3", "artist6", "album2", 8, 100);
+        Song song9 = new Proxy("song4", "artist6", "album2", 9, 100);
+        Song song10 = new Proxy("song5", "artist6", "album2", 10, 100);
 
 
         List<Song> song_list_2 = new ArrayList<Song>();
